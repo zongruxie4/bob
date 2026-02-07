@@ -80,7 +80,7 @@
 (defn api-spec
   [_]
   {:status 200
-   :headers {"Content-Type" "application/yaml"}
+   :headers {"Content-Type" "text/plain"}
    :body (-> "bob/api.yaml"
              io/resource
              io/input-stream)})
