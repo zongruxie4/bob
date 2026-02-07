@@ -99,7 +99,7 @@
     db :db
     stream :stream}]
   (f/try-all [_ (pipeline/create db stream pipeline)]
-    (respond "Ok" 200)
+    (respond "Ok")
     (f/when-failed [err]
       (respond (f/message err) 500))))
 
