@@ -101,13 +101,15 @@
               :bob.pipeline.quotas/limits]))
 
 (spec/def :bob/pipeline
-  (spec/keys :req-un [:bob.pipeline/group
-                      :bob.pipeline/name
-                      :bob.pipeline/image
-                      :bob.pipeline/steps]
-             :opt-un [:bob.pipeline/vars
-                      :bob.pipeline/resources
-                      :bob.pipeline/quotas]))
+  (spec/and
+   (spec/keys :req-un [:bob.pipeline/group
+                       :bob.pipeline/name
+                       :bob.pipeline/image
+                       :bob.pipeline/steps]
+              :opt-un [:bob.pipeline/vars
+                       :bob.pipeline/resources
+                       :bob.pipeline/quotas])
+   (spec/conformer #(select-keys % [:group :name :image :steps :vars :resources :quotas]))))
 
 (spec/def :bob.resource-provider/url string?)
 

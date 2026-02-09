@@ -6,8 +6,10 @@
 
 (ns apiserver.entities.pipeline
   (:require
+   [clojure.spec.alpha :as spec]
    [clojure.tools.logging :as log]
    [common.events :as ev]
+   [common.schemas]
    [common.store :as store]
    [failjure.core :as f]))
 
@@ -16,7 +18,7 @@
   [db {:keys [producer]} {:keys [group name] :as data}]
   (let [id (str "bob.pipeline/" group ":" name)]
     (log/infof "Creating pipeline %s with id %s" data id)
-    (store/put db id data)
+    (store/put db id (spec/conform :bob/pipeline data))
     (ev/emit producer
              {:type "Normal"
               :kind "Pipeline"
