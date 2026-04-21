@@ -7,11 +7,11 @@
 {:paths ["src" "resources"]
  :deps {aero/aero {:mvn/version "1.1.6"}
         ch.qos.logback/logback-classic {:mvn/version "1.5.32"}
-        com.rabbitmq/stream-client {:mvn/version "1.5.0"}
+        com.rabbitmq/stream-client {:mvn/version "1.6.0"}
         common/common {:local/root "../common"}
         failjure/failjure {:mvn/version "2.3.0"}
         integrant/integrant {:mvn/version "1.0.1"}
-        io.github.lispyclouds/contajners {:git/sha "ece6b80e00baac40b046d6cb50ec08730e4ed238"}
+        io.github.lispyclouds/contajners {:git/sha "c894273727e561b25cd40799ff733f6378a9e58d"}
         org.babashka/http-client {:mvn/version "0.4.23"}
         org.clojure/clojure {:mvn/version "1.12.4"}
         org.clojure/data.json {:mvn/version "2.5.2"}
