@@ -38,7 +38,7 @@
                                              "x-dead-letter-routing-key" "bob.dlq"
                                              "x-expires" 300000 ;; Configurable?
                                              "x-queue-type" "classic"}
-                                      :props {:auto-delete true ;; TODO: should this queue be deleted on shutdown/exclusive?
+                                      :props {:exclusive true
                                               :durable false}}}
                  :bindings {jobs-queue "bob.direct"}
                  :subscriptions {jobs-queue subscriber}})))
